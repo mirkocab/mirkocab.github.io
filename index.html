@@ -68,12 +68,18 @@
             width: 100%;
         }
 
-        .horizontal-videos video {
+        .youtube-video {
             width: 100%;
             aspect-ratio: 16 / 9;
-            object-fit: cover;
             border-radius: 12px;
+            overflow: hidden;
             background: #222;
+        }
+
+        .youtube-video iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
             display: block;
         }
 
@@ -144,15 +150,25 @@
 
         <section class="horizontal-videos">
 
-            <video controls playsinline preload="metadata">
-                <source src="horizontal1.mp4" type="video/mp4">
-                Tu navegador no puede reproducir este video.
-            </video>
+            <!-- HORIZONTAL 1 -->
+            <div class="youtube-video">
+                <iframe
+                    src="https://www.youtube.com/embed/sH1zEXQh7QA"
+                    title="Horizontal Video 1"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+            </div>
 
-            <video controls playsinline preload="metadata">
-                <source src="horizontal2.mp4" type="video/mp4">
-                Tu navegador no puede reproducir este video.
-            </video>
+            <!-- HORIZONTAL 2 -->
+            <div class="youtube-video">
+                <iframe
+                    src="https://www.youtube.com/embed/_ZO6MntCjOo"
+                    title="Horizontal Video 2"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+            </div>
 
         </section>
 
@@ -162,6 +178,9 @@
     <footer>
         © 2026 Mirko Cabrera — Video Editor
     </footer>
+
+</body>
+</html>
 
 </body>
 </html>
