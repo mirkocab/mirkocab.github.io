@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <meta name="description" content="Mirko Cabrera - Video Editor. Edición de videos para YouTube, TikTok y Reels.">
+    <meta name="theme-color" content="#0c0c0f">
+
     <title>Mirko Cabrera | Video Editor</title>
 
     <style>
@@ -14,272 +17,583 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --background: #0c0c0f;
+            --surface: #141419;
+            --border: #292932;
+            --text: #f5f5f7;
+            --muted: #92929e;
+            --accent: #a78bfa;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            background: #111111;
+            background: var(--background);
+            color: var(--text);
+            font-family: Inter, Arial, Helvetica, sans-serif;
+            padding: 0 7%;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-size: 17px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-contact {
+            text-decoration: none;
+            color: var(--muted);
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .nav-contact:hover {
             color: white;
-            font-family: Arial, Helvetica, sans-serif;
-            padding: 50px 7%;
         }
 
-        header {
-            text-align: center;
-            margin-bottom: 50px;
+        /* HERO */
+
+        .hero {
+            padding: 105px 0 95px;
+            max-width: 760px;
         }
 
-        header h1 {
-            font-size: 42px;
-            margin-bottom: 10px;
+        .availability {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            color: #c4b5fd;
+            background: rgba(167, 139, 250, 0.09);
+            border: 1px solid rgba(167, 139, 250, 0.2);
+            border-radius: 30px;
+            padding: 7px 14px;
+            font-size: 13px;
+            margin-bottom: 25px;
         }
 
-        header p {
-            color: #aaaaaa;
-            font-size: 18px;
+        .availability-dot {
+            width: 7px;
+            height: 7px;
+            background: #a78bfa;
+            border-radius: 50%;
         }
 
-        .section-title {
-            font-size: 24px;
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 70px);
+            line-height: 1.08;
+            letter-spacing: -3px;
             margin-bottom: 20px;
         }
 
-        /* VIDEOS VERTICALES */
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero p {
+            color: var(--muted);
+            font-size: 18px;
+            max-width: 550px;
+            margin-bottom: 32px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 13px 23px;
+            border-radius: 7px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .button-primary {
+            background: var(--accent);
+            color: #15121d;
+        }
+
+        .button-primary:hover {
+            background: #c4b5fd;
+            transform: translateY(-2px);
+        }
+
+        .button-secondary {
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        .button-secondary:hover {
+            background: var(--surface);
+            border-color: #555;
+        }
+
+        /* PORTFOLIO */
+
+        .portfolio {
+            padding: 30px 0 90px;
+            scroll-margin-top: 25px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            margin-bottom: 28px;
+        }
+
+        .section-label {
+            color: var(--accent);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 7px;
+        }
+
+        .section-header h2 {
+            font-size: 29px;
+            letter-spacing: -0.8px;
+        }
+
+        .section-description {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* VERTICAL VIDEOS */
 
         .vertical-videos {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 25px;
-            max-width: 850px;
-            margin: 0 auto 70px auto;
+            max-width: 790px;
+        }
+
+        .video-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 10px;
+            transition: transform 0.25s, border-color 0.25s;
+        }
+
+        .video-card:hover {
+            transform: translateY(-4px);
+            border-color: #55505f;
         }
 
         .vertical-videos video {
+            display: block;
             width: 100%;
             aspect-ratio: 9 / 16;
             object-fit: cover;
-            border-radius: 12px;
-            background: #222;
-            display: block;
+            border-radius: 7px;
+            background: #08080a;
         }
 
-        /* VIDEOS HORIZONTALES */
+        .video-caption {
+            padding: 12px 5px 5px;
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        /* HORIZONTAL VIDEOS */
 
         .horizontal-videos {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-            width: 100%;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
         }
 
         .youtube-video {
             width: 100%;
             aspect-ratio: 16 / 9;
-            border-radius: 12px;
+            background: #08080a;
+            border-radius: 8px;
             overflow: hidden;
-            background: #222;
         }
 
         .youtube-video iframe {
+            display: block;
             width: 100%;
             height: 100%;
             border: none;
-            display: block;
         }
 
-        /* CONTACTO */
+        /* CONTACT */
 
         .contact {
             text-align: center;
-            margin-top: 100px;
-            padding: 70px 20px;
-            border-top: 1px solid #292929;
+            padding: 85px 20px;
+            margin-top: 10px;
+            border-top: 1px solid var(--border);
+            scroll-margin-top: 25px;
         }
 
         .contact h2 {
-            font-size: 32px;
+            font-size: clamp(30px, 5vw, 42px);
+            letter-spacing: -1.5px;
             margin-bottom: 12px;
         }
 
         .contact p {
-            color: #aaaaaa;
-            font-size: 17px;
+            color: var(--muted);
+            font-size: 16px;
             margin-bottom: 30px;
         }
 
         .contact-buttons {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            align-items: center;
+            gap: 12px;
             flex-wrap: wrap;
         }
 
         .contact-button {
             display: inline-block;
-            padding: 14px 28px;
-            border: 1px solid #444;
-            border-radius: 8px;
-            color: white;
+            padding: 12px 24px;
+            border: 1px solid var(--border);
+            border-radius: 7px;
             text-decoration: none;
-            font-size: 16px;
+            font-size: 14px;
             transition: 0.2s;
         }
 
         .contact-button:hover {
-            background: white;
-            color: #111;
+            background: var(--surface);
+            border-color: var(--accent);
+            color: #c4b5fd;
         }
+
+        /* FOOTER */
 
         footer {
-            text-align: center;
-            margin-top: 20px;
-            color: #777;
-            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 22px 0;
+            border-top: 1px solid var(--border);
+            color: #70707c;
+            font-size: 12px;
         }
 
-        /* CELULAR */
+        /* RESPONSIVE */
 
         @media (max-width: 700px) {
 
             body {
-                padding: 35px 20px;
+                padding: 0 20px;
             }
 
-            header h1 {
-                font-size: 32px;
+            nav {
+                padding: 19px 0;
             }
 
-            header p {
+            .hero {
+                padding: 75px 0 65px;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .hero p {
                 font-size: 16px;
+            }
+
+            .portfolio {
+                padding: 25px 0 65px;
+            }
+
+            .section-header {
+                display: block;
+            }
+
+            .section-header h2 {
+                font-size: 25px;
+            }
+
+            .section-description {
+                margin-top: 5px;
             }
 
             .vertical-videos {
                 gap: 12px;
-                margin-bottom: 50px;
+            }
+
+            .video-card {
+                padding: 6px;
+            }
+
+            .video-caption {
+                font-size: 11px;
             }
 
             .horizontal-videos {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 17px;
             }
 
             .contact {
-                margin-top: 70px;
-                padding: 50px 10px;
-            }
-
-            .contact h2 {
-                font-size: 28px;
+                padding: 65px 5px;
             }
 
             .contact-buttons {
                 flex-direction: column;
-                align-items: center;
             }
 
             .contact-button {
                 width: 220px;
             }
+
+            footer {
+                flex-direction: column;
+                text-align: center;
+            }
         }
+
+        @media (max-width: 380px) {
+            .vertical-videos {
+                grid-template-columns: 1fr;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+        }
+
     </style>
 </head>
 
 <body>
 
-    <header>
-        <h1>Mirko Cabrera</h1>
-        <p>Video Editor</p>
+<div class="container">
+
+    <!-- NAVBAR -->
+
+    <nav>
+        <div class="logo">
+            MIRKO<span>.</span> CABRERA
+        </div>
+
+        <a href="#contacto" class="nav-contact">
+            Contacto ↗
+        </a>
+    </nav>
+
+
+    <!-- HERO -->
+
+    <header class="hero">
+
+        <div class="availability">
+            <span class="availability-dot"></span>
+            Disponible para nuevos proyectos
+        </div>
+
+        <h1>
+            Mirko Cabrera<br>
+            <span>Video Editor.</span>
+        </h1>
+
+        <p>
+            Edición de videos para creadores de contenido.
+            Transformo ideas y material audiovisual en videos
+            dinámicos para YouTube, TikTok y Reels.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#trabajos" class="button button-primary">
+                Ver mis trabajos ↓
+            </a>
+
+            <a href="#contacto" class="button button-secondary">
+                Contactarme ↗
+            </a>
+
+        </div>
+
     </header>
+
 
     <main>
 
         <!-- SHORT FORM -->
 
-        <h2 class="section-title">Tiktok y Reels</h2>
+        <section class="portfolio" id="trabajos">
 
-        <section class="vertical-videos">
+            <div class="section-header">
+                <div>
+                    <div class="section-label">Portfolio / 01</div>
+                    <h2>TikTok & Reels</h2>
+                </div>
 
-            <video controls playsinline preload="metadata">
-                <source src="vertical1.mp4" type="video/mp4">
-                Tu navegador no puede reproducir este video.
-            </video>
+                <p class="section-description">
+                    Contenido vertical
+                </p>
+            </div>
 
-            <video controls playsinline preload="metadata">
-                <source src="vertical2.mp4" type="video/mp4">
-                Tu navegador no puede reproducir este video.
-            </video>
+            <div class="vertical-videos">
+
+                <div class="video-card">
+                    <video controls playsinline preload="metadata">
+                        <source src="vertical1.mp4" type="video/mp4">
+                        Tu navegador no puede reproducir este video.
+                    </video>
+
+                    <div class="video-caption">
+                        Short Form Video 01
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <video controls playsinline preload="metadata">
+                        <source src="vertical2.mp4" type="video/mp4">
+                        Tu navegador no puede reproducir este video.
+                    </video>
+
+                    <div class="video-caption">
+                        Short Form Video 02
+                    </div>
+                </div>
+
+            </div>
 
         </section>
+
 
         <!-- LONG FORM -->
 
-        <h2 class="section-title">Youtube</h2>
+        <section class="portfolio">
 
-        <section class="horizontal-videos">
+            <div class="section-header">
+                <div>
+                    <div class="section-label">Portfolio / 02</div>
+                    <h2>YouTube</h2>
+                </div>
 
-            <!-- HORIZONTAL 1 -->
-
-            <div class="youtube-video">
-                <iframe
-                    src="https://www.youtube.com/embed/sH1zEXQh7QA"
-                    title="Horizontal Video 1"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen>
-                </iframe>
+                <p class="section-description">
+                    Contenido horizontal
+                </p>
             </div>
 
-            <!-- HORIZONTAL 2 -->
+            <div class="horizontal-videos">
 
-            <div class="youtube-video">
-                <iframe
-                    src="https://www.youtube.com/embed/_ZO6MntCjOo"
-                    title="Horizontal Video 2"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen>
-                </iframe>
-            </div>
+                <!-- VIDEO 1 -->
 
-            <!-- HORIZONTAL 3 -->
+                <div class="video-card">
+                    <div class="youtube-video">
+                        <iframe
+                            src="https://www.youtube.com/embed/sH1zEXQh7QA"
+                            title="YouTube Video 1"
+                            loading="lazy"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
 
-            <div class="youtube-video">
-                <iframe
-                    src="https://www.youtube.com/embed/OioKelAmYQ0"
-                    title="Horizontal Video 3"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen>
-                </iframe>
-            </div>
+                <!-- VIDEO 2 -->
 
-            <!-- HORIZONTAL 4 -->
+                <div class="video-card">
+                    <div class="youtube-video">
+                        <iframe
+                            src="https://www.youtube.com/embed/_ZO6MntCjOo"
+                            title="YouTube Video 2"
+                            loading="lazy"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
 
-            <div class="youtube-video">
-                <iframe
-                    src="https://www.youtube.com/embed/loWClj4zg9A"
-                    title="Horizontal Video 4"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen>
-                </iframe>
+                <!-- VIDEO 3 -->
+
+                <div class="video-card">
+                    <div class="youtube-video">
+                        <iframe
+                            src="https://www.youtube.com/embed/OioKelAmYQ0"
+                            title="YouTube Video 3"
+                            loading="lazy"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+
+                <!-- VIDEO 4 -->
+
+                <div class="video-card">
+                    <div class="youtube-video">
+                        <iframe
+                            src="https://www.youtube.com/embed/loWClj4zg9A"
+                            title="YouTube Video 4"
+                            loading="lazy"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+
             </div>
 
         </section>
 
+
         <!-- CONTACTO -->
 
-        <section class="contact">
+        <section class="contact" id="contacto">
+
+            <div class="section-label">Hablemos</div>
 
             <h2>¿Trabajamos juntos?</h2>
 
-            <p>Estoy disponible para nuevos proyectos de edición.</p>
+            <p>
+                Estoy disponible para nuevos proyectos de edición.
+                Contame qué tenés en mente.
+            </p>
 
             <div class="contact-buttons">
 
-                <!-- INSTAGRAM -->
-
                 <a
-                    class="contact-button"
-                    href="https://www.instagram.com/mirko.cabrera/"
-                    target="_blank">
-                    Instagram
+                    class="button button-primary"
+                    href="https://wa.me/5491155651999"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Hablemos por WhatsApp ↗
                 </a>
-
-                <!-- EMAIL -->
 
                 <a
                     class="contact-button"
@@ -287,13 +601,12 @@
                     Email
                 </a>
 
-                <!-- WHATSAPP -->
-
                 <a
                     class="contact-button"
-                    href="https://wa.me/5491155651999"
-                    target="_blank">
-                    WhatsApp
+                    href="https://www.instagram.com/mirko.cabrera/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Instagram ↗
                 </a>
 
             </div>
@@ -302,9 +615,18 @@
 
     </main>
 
+
+    <!-- FOOTER -->
+
     <footer>
-        © 2026 Mirko Cabrera — Video Editor
+
+        <span>© 2026 Mirko Cabrera</span>
+
+        <span>Video Editor · Argentina</span>
+
     </footer>
+
+</div>
 
 </body>
 </html>
